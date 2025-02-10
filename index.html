@@ -1,75 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We've Moved! - novatra PYQs app</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            text-align: center;
-            max-width: 80%;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-        }
-        .redirect-timer {
-            font-weight: bold;
-            color: #007bff;
-        }
-        .button {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Novatra App - Free PYQ Practice for JEE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <style>
+/* Apply border-box box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset html and body */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure no horizontal overflow */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  font-family: Lato, Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 19px;
+  background-color: #fefefe;
+  color: #04143a;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* Hero Section */
+.hero {
+  margin: 100px auto 100px auto; /* Adjusted for better spacing */
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+h1.name {
+  font-size: 70px; /* Adjusted size for better responsiveness */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: #81899c;
+  margin-top: 10px;
+}
+
+.lead {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 30px;
+  line-height: 36px;
+}
+
+/* Sections */
+.sections {
+  display: inline-block;
+  min-height: 50px;
+  margin-bottom: 30px;
+  padding: 20px;
+  width: 100%;
+}
+
+.sectionleft, .sectionright {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.list-card {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 90%;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #eee;
+  color: #616061;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 16px;
+}
+
+footer a {
+  color: #d84f0e;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .hero {
+    margin: 60px auto;
+  }
+
+  .lead {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  footer {
+    padding: 30px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin: 40px auto;
+  }
+
+  h1.name {
+    font-size: 50px;
+  }
+
+  .lead {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+
+  .list-card {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  h1.name {
+    font-size: 40px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  footer {
+    padding: 15px 10px;
+  }
+}
+</style>
 </head>
+
 <body>
+  <div id="wholesite">
+    <!-- Hero Section -->
     <div class="container">
-        <h1>We've Moved!</h1>
-        <p>Novatra PYQs has a new home. You will be automatically redirected to our new location in <span class="redirect-timer">10</span> seconds.</p>
-        <p>If you're not redirected automatically, please click the button below:</p>
-        <a href="https://novatra.in" class="button">Go to New Site</a>
-        <p><small>Thank you for your patience and continued support!</small></p>
+      <div class="hero">
+        <div id="plsstop">
+          <h1 class="name">
+            Novatra - Free PYQ Practice for JEE 📚📝
+          </h1>
+        </div>
+        <span class="subtitle">Your ultimate companion for JEE preparation 🚀</span>
+        <h2 class="lead">
+          Novatra is a 100% free platform designed to help JEE aspirants prepare effectively 💯.
+        </h2>
+      </div>
     </div>
 
-    <script>
-        // Countdown timer
-        let seconds = 10;
-        const timerElement = document.querySelector('.redirect-timer');
-        const countdownInterval = setInterval(() => {
-            seconds--;
-            timerElement.textContent = seconds;
-            if (seconds <= 0) {
-                clearInterval(countdownInterval);
-                window.location.href = 'https://novatra.in';
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+    <!-- Why Novatra Section -->
+    <div class="container why-novatra">
+      <div class="sections sectionleft">
+        <h2 class="section-title" style="margin-bottom: 20px;">Why Novatra? 🤔</h2>
+        <div class="list-card">
+          <ul>
+            <li>✅ <strong>Completely Free:</strong> No ads, no paywalls, no hidden costs.</li>
+            <li>✅ <strong>User-Friendly:</strong> Clean and intuitive interface for seamless navigation.</li>
+            <li>✅ <strong>Comprehensive:</strong> Covers all shifts of JEE Mains.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <p>We’re here to make your JEE prep stress-free, efficient, and productive! 🧠📈</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Offer Section -->
+    <div class="container">
+      <div class="sections sectionleft">
+        <h2 class="section-title" style="margin-bottom: 20px;">What We Offer 🛠️</h2>
+        <div class="list-card">
+          <ul>
+            <li>✅ <strong>Topic-wise PYQs:</strong> Practice questions sorted by topic for focused preparation.</li>
+            <li>✅ <strong>Year-wise PYQs:</strong> Solve full papers from previous years to simulate real exam conditions.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <p>Whether you're brushing up on specific topics or taking full-length practice tests, Novatra's got you covered! 🔥</p>
+      </div>
+    </div>
+
+    <!-- Future Plans Section -->
+    <div class="container future-plans">
+      <div class="sections sectionleft">
+        <h2 class="section-title" style="margin-bottom: 20px;">Future Plans 📅</h2>
+        <div class="list-card">
+          <ul>
+            <li>✅ JEE Advanced PYQs</li>
+            <li>✅ NEET PYQs</li>
+            <li>✅ Progress Tracking: Analyze your performance and identify weak areas.</li>
+            <li>✅ More features based on your feedback.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community Section -->
+    <div class="container">
+      <div class="sections sectionleft">
+        <h2 class="section-title" style="margin-bottom: 20px;">Let’s Grow Together 🌱</h2>
+        <div class="list-card">
+          <p>Novatra is not just a platform – it’s a community-driven initiative to make quality education accessible to everyone. Whether you’re a student, parent, or educator, your support makes a difference. 🤝</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>
+        Powered by Novatra - Your partner in JEE preparation 🚀
+      </p>
+    </footer>
+  </div>
+</body></html>
